@@ -1,9 +1,5 @@
 // script.js
 
-// Declare itemName and amountWanted globally so they can be accessed anywhere
-let itemName = '';
-let amountWanted = 0;
-
 async function calculateBingo() {
     // Collect input values from the form
     const itemName = document.getElementById('item_name').value;
