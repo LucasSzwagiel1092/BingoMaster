@@ -47,13 +47,13 @@ async function calculateBingo() {
 
         const result = await response.json();
         console.log(result);  // Add this line to inspect the returned result
-        displayResults(result);
+        displayResults(result, itemName, amountWanted);
     } catch (error) {
         displayError("An error occurred while fetching the data: " + error.message);
     }
 }
 
-function displayResults(result) {
+function displayResults(result, itemName, amountWanted) {
     // Clear any previous error messages
     clearError();
 
@@ -83,6 +83,7 @@ function displayResults(result) {
     // Show the results container
     resultsContainer.style.display = 'block';
 }
+
 
 
 function displayError(message) {
