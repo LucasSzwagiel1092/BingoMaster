@@ -7,8 +7,18 @@ async function calculateBingo() {
     const amountWanted = parseInt(document.getElementById('amount_wanted').value);
     const grindsPerHour = parseFloat(document.getElementById('grinds_per_hour').value);
 
+    console.log("Item Name:", itemName);
+    console.log("Points Per Grind:", pointsPerGrind);
+    console.log("Amount Wanted:", amountWanted);
+    console.log("Grinds Per Hour:", grindsPerHour);
+
     // Validate input
-    if (isNaN(pointsPerGrind) || isNaN(amountWanted) || isNaN(grindsPerHour)) {
+    if (
+        isNaN(pointsPerGrind) ||
+        isNaN(amountWanted) ||
+        isNaN(grindsPerHour) ||
+        itemName.trim() === ""
+    ) {
         displayError("Please enter valid numerical values in all fields.");
         return;
     }
