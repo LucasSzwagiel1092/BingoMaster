@@ -4,26 +4,19 @@
 <body>
     <h1>🎃 Spooktacular Bingo Calculator 🎃</h1>
 
-    {% include 'form.html' %}
+    <div id="form-container">
+        {% include 'form.html' %}
+    </div>
 
-    {% if error_message %}
-    <div class="error-message">{{ error_message }}</div>
-    {% endif %}    
+    <div id="error-message" class="error-message" style="display: none;"></div>
 
-    {% if result %}
-    <h2>Results:</h2>
-    <ul>
-        {% for res in result %}
-            {% if res.error %}
-                <li>{{ res.monster }} - Drop Chance: {{ res.drop_chance }} - {{ res.error }}</li>
-            {% else %}
-                <li>Grinding for {{ amount_wanted }} of {{ item_name }} from {{ res.monster }} at a {{ res.drop_chance }} drop chance. <br>
-                    Points per hour: {{ res.points_per_hour | round(2) }}</li>
-            {% endif %}
-        {% endfor %}
-    </ul>
-    {% endif %}
+    <div id="results-container" style="display: none;">
+        <h2>Results:</h2>
+        <ul id="results-list"></ul>
+    </div>
 
     {% include 'footer.html' %}
+
+    <script src="js/script.js"></script>
 </body>
 </html>
