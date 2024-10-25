@@ -33,7 +33,7 @@ async function calculateBingo() {
 
     try {
         // Send data to the backend using fetch
-        const response = await fetch('https://439b-142-198-116-33.ngrok-free.app/api/calculate', {
+        const response = await fetch('https://02c6-142-198-116-33.ngrok-free.app/api/calculate', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
