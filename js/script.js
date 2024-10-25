@@ -8,7 +8,7 @@ async function calculateBingo() {
     const grindsPerHour = parseFloat(document.getElementById('grinds_per_hour').value);
 
     // Validate input
-    if (isNaN(pointsPerGrind) || isNaN(amountWanted) || isNaN(grindsPerHour)) {
+    if (isNaN(pointsPerGrind) || isNaN(amountWanted) || isNaN(grinds_per_hour)) {
         displayError("Please enter valid numerical values in all fields.");
         return;
     }
@@ -57,9 +57,15 @@ function displayResults(result) {
         errorItem.innerHTML = result.error;
         resultsList.appendChild(errorItem);
     } else {
-        const resultItem = document.createElement('li');
-        resultItem.innerHTML = `${result.message}<br> Points per hour: ${result.points_per_hour}`;
-        resultsList.appendChild(resultItem);
+        result.forEach(res => {
+            const resultItem = document.createElement('li');
+            if (res.error) {
+                resultItem.innerHTML = `${res.monster} - Drop Chance: ${res.drop_chance} - ${res.error}`;
+            } else {
+                resultItem.innerHTML = `Grinding for ${data.amount_wanted} of ${data.item_name} from ${res.monster} at a ${res.drop_chance} drop chance. <br> Points per hour: ${res.points_per_hour}`;
+            }
+            resultsList.appendChild(resultItem);
+        });
     }
 
     // Show the results container
